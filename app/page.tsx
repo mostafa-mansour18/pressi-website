@@ -108,9 +108,12 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white text-black">
       <nav className="max-w-6xl mx-auto flex justify-between items-center px-8 py-6">
-        <h1 className="text-2xl font-bold tracking-tight">Pressi</h1>
-        <div className="flex gap-6 text-sm items-center">
-          <a href="#products" className="hover:opacity-60">
+<a href="/" className="flex items-center mr-4">
+  <img src="/brand/logo-pressi-cropped.png" alt="Pressi by Dina" 
+className="h-9 w-auto" />
+</a>
+<div className="flex gap-6 text-sm items-center">          <a 
+href="#products" className="hover:opacity-60">
             Shop
           </a>
           <a href="#" className="hover:opacity-60">
