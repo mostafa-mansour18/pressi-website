@@ -145,8 +145,7 @@ const products = [
     category: 'The French Edit',
     categoryId: 'french',
     finish: 'Sage & Quartz Vein',
-    image_url:
-      'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=90',
+    image_url:'https://images.unsplash.com/photo-1522337660859-02fbefca4702?w=800&q=90',
   },
   {
     id: '6',
@@ -156,8 +155,7 @@ const products = [
     category: 'The Soft Nude',
     categoryId: 'nude',
     finish: 'Blush Cream Gel',
-    image_url:
-      'https://images.unsplash.com/photo-1599839575945-a9e5af0c3fa5?w=800&q=90',
+    image_url:'https://images.unsplash.com/photo-1598256989800-fe5f95da9787?w=800&q=90',
   },
   {
     id: '7',
@@ -167,8 +165,7 @@ const products = [
     category: 'The Golden Hour',
     categoryId: 'gold',
     finish: 'Liquid Gold Mirror',
-    image_url:
-      'https://images.unsplash.com/photo-1607779097040-26e80aa78e66?w=800&q=90',
+    image_url:'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=800&q=90',
   },
   {
     id: '8',

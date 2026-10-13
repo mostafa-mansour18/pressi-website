@@ -1,0 +1,133 @@
+// app/layout.tsx
+import type { Metadata } from 'next';
+import { Fraunces, Inter } from 'next/font/google';
+import './globals.css';
+
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  weight: ['300', '400', '500'],
+  variable: '--font-fraunces',
+  display: 'swap',
+});
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--font-inter',
+  display: 'swap',
+});
+
+const SITE_URL = 'https://pressi-website.vercel.app';
+
+export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: 'PRESSI by Dina — Luxury Press-On Nails & Fine Nail Jewelry | 
+Beirut',
+    template: '%s | PRESSI',
+  },
+  description:
+    'Handcrafted luxury press-on nails and reusable fine nail jewelry by 
+founder Dina in Beirut, Lebanon. Salon-grade, non-damaging, and instant 
+elegance.',
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: 'PRESSI by Dina — Luxury Press-On Nails & Fine Nail Jewelry',
+    description:
+      'Handcrafted luxury press-on nails and reusable fine nail jewelry by 
+founder Dina in Beirut, Lebanon.',
+    url: SITE_URL,
+    siteName: 'PRESSI',
+    images: [
+      {
+        url: '/brand/logo-pressi-cropped.png',
+        width: 1200,
+        height: 630,
+        alt: 'PRESSI Luxury Press-On Nails Beirut',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'PRESSI by Dina — Luxury Press-On Nails & Fine Nail Jewelry',
+    description:
+      'Handcrafted luxury press-on nails and reusable fine nail jewelry by 
+founder Dina in Beirut, Lebanon.',
+    images: ['/brand/logo-pressi-cropped.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': `${SITE_URL}/#organization`,
+      name: 'PRESSI',
+      alternateName: 'PRESSI by Dina',
+      url: SITE_URL,
+      logo: `${SITE_URL}/brand/logo-pressi-cropped.png`,
+      founder: {
+        '@type': 'Person',
+        name: 'Dina',
+        jobTitle: 'Founder & Nail Artist',
+      },
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Beirut',
+        addressCountry: 'LB',
+      },
+      contactPoint: {
+        '@type': 'ContactPoint',
+        telephone: '+96170083049',
+        contactType: 'customer service',
+        availableLanguage: ['English', 'Arabic', 'French'],
+      },
+      sameAs: ['https://wa.me/96170083049'],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: 'PRESSI',
+      description:
+        'Luxury press-on nails and fine nail jewelry from Beirut, 
+Lebanon',
+      publisher: {
+        '@id': `${SITE_URL}/#organization`,
+      },
+      inLanguage: 'en-US',
+    },
+  ],
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html
+      lang="en"
+      className={`${fraunces.variable} ${inter.variable}`}
+    >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
+      <body className="font-sans bg-ivory text-ink antialiased">
+        {children}
+      </body>
+    </html>
+  );
+}
