@@ -590,9 +590,9 @@ export default function Home() {
 
         {/* Category cards */}
         <motion.div
+key={activeCategory}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
+          animate="visible"
           variants={containerVariants}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7"
         >
@@ -749,13 +749,13 @@ export default function Home() {
         </div>
 
         {/* Product grid: 2 columns on phones, 4 on desktop */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-          variants={containerVariants}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 lg:gap-8"
-        >
+<motion.div
+  key={activeCategory}
+  initial="hidden"
+  animate="visible"
+  variants={containerVariants}
+  className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 lg:gap-8"
+>
           {filteredProducts.map((p) => (
             <motion.div
               key={p.id}
