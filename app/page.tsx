@@ -188,15 +188,13 @@ type CartItem = {
 };
 
 type AIStylistResult = {
-  title: string;
   category: string;
+  suggestedMatchingProduct: string;
   shapeAndLength: string;
   finish: string;
-  consultationStory: string;
-  stylingTips: string[];
-  suggestedMatchingProduct: string;
+  message: string;
+  tips: string[];
 };
-
 export default function Home() {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -879,11 +877,24 @@ export default function Home() {
               ) : (
                 <div className="mt-6 space-y-6">
                   <div className="p-6 bg-white border border-[#C9A961]/40 shadow-xs">
-                    <span className="text-[10px] uppercase tracking-[0.22em] text-[#C9A961] font-semibold">
+{(() => {
+  const matched = products.find((p) => p.name === 
+aiResult.suggestedMatchingProduct) || products.find((p) => p.category === 
+aiResult.category);
+  if (!matched) return null;
+  return (
+    <img
+      src={matched.image_url}
+      alt={aiResult.category}
+      className="w-full h-64 object-cover mb-6"
+    />
+  );
+})()}                 
+   <span className="text-[10px] uppercase tracking-[0.22em] text-[#C9A961] font-semibold">
                       Your Bespoke Recommendation
                     </span>
                     <h4 className="font-display text-2xl text-ink mt-1">
-                      {aiResult.title}
+                      {aiResult.suggestedMatchingProduct}
                     </h4>
                     <div className="flex flex-wrap gap-3 mt-3 text-xs text-ink/60">
                       <span className="px-2.5 py-0.5 bg-[#E5D5C3]/40 border border-ink/10">
@@ -898,7 +909,7 @@ export default function Home() {
                     </div>
 
                     <p className="mt-4 text-sm text-ink/75 leading-relaxed font-light">
-                      {aiResult.consultationStory}
+                      {aiResult.message}
                     </p>
 
                     <div className="mt-5 pt-4 border-t border-ink/10">
@@ -906,7 +917,7 @@ export default function Home() {
                         Atelier Styling Guidance:
                       </p>
                       <ul className="space-y-1.5 text-xs text-ink/70">
-                        {aiResult.stylingTips.map((tip, idx) => (
+                        {aiResult.tips.map((tip, idx) => (
                           <li key={idx} className="flex items-start gap-2">
                             <span className="text-[#C9A961]">✦</span>
                             <span>{tip}</span>
@@ -923,7 +934,7 @@ export default function Home() {
                           (p) =>
                             p.name.toLowerCase() ===
                             aiResult.suggestedMatchingProduct.toLowerCase()
-                        ) || products[2];
+                        ) || products.find((p) => p.category === aiResult.category) || products[2];
                         addToCart(matched);
                         setIsAiModalOpen(false);
                       }}
