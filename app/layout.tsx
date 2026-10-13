@@ -32,7 +32,7 @@ const siteDescription =
 // If you ever replace the image and WhatsApp still shows the old one,
 // change ?v=1 to ?v=2 (previews are cached).
 const ogImage = {
-  url: '/og-image.png?v=1',
+  url: '/og-image.png?v=2',
   width: 1200,
   height: 630,
   alt: 'PRESSI by Dina. Made to Press. Made to Impress.',
