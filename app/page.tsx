@@ -439,16 +439,10 @@ export default function Home() {
   return (
     <main className="min-h-dvh bg-ivory text-ink selection:bg-[#E5D5C3]">
       {/* Announcement Bar */}
-      <div className="bg-ink text-ivory text-[10px] uppercase tracking-[0.22em] py-2.5 px-4 text-center border-b border-ink/20 flex items-center justify-center gap-3">
-        <span className="w-1.5 h-1.5 rounded-full bg-[#C9A961] animate-pulse" />
-        <span>Beirut Atelier · Free delivery over $80</span>
-        <span className="hidden md:inline text-[#C9A961]">
-          ✦ Handmade in Lebanon
-        </span>
-      </div>
 
       {/* Header */}
-      <header className="sticky top-0 z-40 backdrop-blur-md bg-ivory/90 border-b border-ink/10 transition-all">
+            {/* Header */}
+            <header className="sticky top-0 z-40 backdrop-blur-md bg-ivory/90 border-b border-ink/10 transition-all">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 py-4 flex items-center justify-between">
           {/* Hamburger: phones & tablets only (hidden from lg up) */}
           <button
@@ -514,10 +508,10 @@ export default function Home() {
 
             <button
               onClick={() => setIsCartOpen(true)}
-              className="inline-flex min-h-11 items-center gap-2 px-4 border border-ink/20 text-[11px] uppercase tracking-[0.18em] font-medium text-ink hover:bg-ink hover:text-ivory transition-all cursor-pointer"
+              className="group inline-flex min-h-11 items-center gap-2 rounded-full border border-ink/20 px-4 py-2 text-[11px] uppercase tracking-[0.18em] font-medium text-ink hover:bg-ink hover:text-ivory transition-colors duration-300 cursor-pointer"
             >
               <span>Your Set</span>
-              <span className="w-5 h-5 rounded-full bg-[#E5D5C3] text-ink text-[10px] flex items-center justify-center font-bold">
+              <span className="h-5 w-5 rounded-full bg-ink text-ivory flex items-center justify-center text-[10px] transition-colors duration-300 group-hover:bg-ivory group-hover:text-ink">
                 {totalItems}
               </span>
             </button>
