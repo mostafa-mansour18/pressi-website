@@ -24,18 +24,16 @@ export default function Hero() {
 
   return (
     <section className="relative isolate overflow-hidden bg-ivory text-ink">
-      {/* Atmospheric gold particles sit behind the content. */}
-      <div className="pointer-events-none absolute inset-0 z-0 opacity-50">
-        <Hero3D />
-      </div>
+      
+      
 
-      <div className="relative z-10 mx-auto grid min-h-[780px] max-w-[1600px] grid-cols-1 items-center gap-10 px-6 py-12 sm:px-10 md:min-h-[760px] md:grid-cols-12 md:gap-8 md:px-14 lg:px-20 lg:py-16">
+      <div className="relative z-10 mx-auto grid min-h-[780px] max-w-[1600px] grid-cols-1 items-center gap-12 px-6 py-12 sm:px-10 md:min-h-[760px] md:grid-cols-12 md:gap-12 md:px-14 lg:gap-16 lg:px-20 lg:py-16">
         {/* LEFT: editorial copy and clear shopping action. */}
         <motion.div
           initial={reduceMotion ? false : { opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="relative z-20 order-1 md:col-span-5 md:pr-2 lg:pr-8"
+          className="relative z-20 order-1 md:col-span-5 md:pr-4 lg:pr-12"
         >
           <div className="mb-8 flex items-center gap-3">
             <span className="h-px w-8 bg-gold" />
@@ -46,7 +44,7 @@ export default function Hero() {
 
           {/* Headline: first sentence upright, second sentence italic gold.
               Each line is short, so it never wraps awkwardly on phones. */}
-          <h1 className="max-w-[650px] font-display text-[clamp(3.5rem,6.5vw,6.6rem)] font-normal leading-[0.94] tracking-[-0.055em]">
+          <h1 className="max-w-[650px] font-display text-[clamp(3.5rem,7vw,7.2rem)] font-normal leading-[0.94] tracking-[-0.055em]">
             Made to
             <br />
             Press.
@@ -58,15 +56,15 @@ export default function Hero() {
             </span>
           </h1>
 
-          <p className="mt-7 max-w-[360px] text-[15px] leading-[1.9] text-ink/70 sm:text-base">
+          <p className="mt-8 max-w-[360px] text-[15px] leading-[1.9] text-ink/70 sm:text-base">
             Hand-finished press-on nails, made to your shape, length and
             design. Beirut, Lebanon.
           </p>
 
-          <div className="mt-9 flex flex-wrap items-center gap-x-7 gap-y-4">
+          <div className="mt-10 flex flex-wrap items-center gap-x-7 gap-y-4">
             <a
               href="#products"
-              className="group inline-flex min-h-[54px] items-center justify-center gap-8 border border-ink bg-ink px-6 py-4 text-[11px] font-medium uppercase tracking-[0.16em] text-ivory transition-colors duration-300 hover:bg-transparent hover:text-ink sm:px-7"
+              className="group min-h-[54px] border border-ink bg-transparent text-ink hover:bg-ink hover:text-ivory transition-colors duration-300 px-8 py-4 text-[11px] font-medium uppercase tracking-[0.2em] flex items-center gap-4"
             >
               Discover Your Set
               <span
@@ -91,7 +89,7 @@ export default function Hero() {
             </a>
           </div>
 
-          <div className="mt-12 flex items-center gap-3 border-t border-ink/10 pt-5">
+          <div className="mt-14 flex items-center gap-3 border-t border-ink/10 pt-5">
             <span className="text-sm text-gold" aria-hidden="true">
               ✳
             </span>
@@ -112,14 +110,14 @@ export default function Hero() {
           }}
           className="relative order-2 min-w-0 md:col-span-7"
         >
-          <div className="relative mx-auto aspect-[4/4.8] w-full max-w-[620px] overflow-hidden bg-[#E9DED0] sm:aspect-[4/4.5] md:aspect-[4/5.2] md:max-w-none">
+          <div className="relative mx-auto aspect-[4/4.8] w-full max-w-[620px] overflow-hidden rounded-sm bg-[#E9DED0] sm:aspect-[4/4.5] md:aspect-[4/5.2] md:max-w-none lg:my-8 lg:mr-8">
             {HERO_IMAGE ? (
               // The agency photo replaces the placeholder automatically.
               // Use a well-composed portrait or editorial nail photograph.
               <img
                 src={HERO_IMAGE}
                 alt="PRESSI press-on nail collection editorial"
-                className="absolute inset-0 h-full w-full object-cover"
+                className="absolute inset-0 h-full w-full object-cover sepia-[0.15] contrast-105 brightness-105"
               />
             ) : (
               // Designed placeholder: warm, quiet, and intentional.
