@@ -55,7 +55,7 @@ const headerVariants: Variants = {
 
 // ─── Navigation (used by desktop nav, mobile menu and footer) ─
 const NAV_LINKS = [
-  { href: '#categories', label: 'Haute Categories' },
+  { href: '#categories', label: 'Shop' },
   { href: '#products', label: 'The Collection' },
   { href: '#ritual', label: 'The Ritual' },
   { href: '#story', label: 'Our Story' },
@@ -988,7 +988,13 @@ key={activeCategory}
             <p className="mt-6 text-sm text-ink/70 font-light max-w-md">
               Custom-fit sets are available if you want a tailored match, and
               they ship to you like every order.
-            </p>
+            </p>            
+            <Link href="/guides"
+              className="mt-6 inline-flex min-h-11 items-center border border-ink/20 px-5 text-[11px] uppercase tracking-[0.2em] font-medium text-ink transition hover:bg-ink hover:text-ivory"
+            >
+              View our Shape Guide
+            </Link>
+          
           </div>
         </div>
       </section>
